@@ -1,2 +1,14 @@
-with open("log.txt", "w") as f:
-    f.write("Good morning, Engineer. This is an example created with the Python language.")
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return '''
+    <h1 style="color: blue; text-align: center;">
+        Hello, Engineer! This is a Docker container running a Python app.
+    </h1>
+    '''
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
